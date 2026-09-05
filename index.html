@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Científica Acessível | Tema Descomplica</title>
+    
+    <!-- SEO e Meta Tags -->
+    <meta name="description" content="Calculadora científica gratuita e 100% acessível. Desenvolvida por ubaldo3@gmail.com.">
+    <meta name="author" content="ubaldo3@gmail.com">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main>
+        <!-- Instruções para leitores de tela -->
+        <div id="instrucoes-teclado" class="sr-only">
+            Teclado numérico disponível. Use Enter para calcular, Backspace para apagar e Esc para limpar.
+        </div>
+
+        <div class="calculadora" role="region" aria-labelledby="titulo-calc">
+            <header>
+                <h1 id="titulo-calc" class="sr-only">Calculadora Científica Descomplica</h1>
+            </header>
+
+            <div class="visor-container">
+                <input type="text" id="visor" readonly 
+                       placeholder="0" 
+                       aria-label="Entrada e resultado" 
+                       aria-live="polite"
+                       aria-describedby="instrucoes-teclado">
+            </div>
+            
+            <!-- Correção 2: Trocado role="grid" por role="group" para melhor semântica -->
+            <div class="botoes" role="group" aria-label="Teclado da calculadora">
+                <!-- Funções Científicas -->
+                <button type="button" class="cientifico" onclick="addValor('sin(')" aria-label="Seno">sin</button>
+                <button type="button" class="cientifico" onclick="addValor('cos(')" aria-label="Cosseno">cos</button>
+                <button type="button" class="cientifico" onclick="addValor('tan(')" aria-label="Tangente">tan</button>
+                <button type="button" class="cientifico" onclick="addValor('log(')" aria-label="Logaritmo base dez">log</button>
+                
+                <button type="button" class="cientifico" onclick="addValor('ln(')" aria-label="Logaritmo natural">ln</button>
+                <button type="button" class="cientifico" onclick="addValor('√(')" aria-label="Raiz quadrada">√</button>
+                <button type="button" class="cientifico" onclick="addValor('^')" aria-label="Elevado a potência">x^y</button>
+                <button type="button" class="cientifico" onclick="addValor('π')" aria-label="Pi">π</button>
+                
+                <!-- Controles -->
+                <button type="button" class="destaque-verde" onclick="limpar()" aria-label="Limpar tudo">C</button>
+                <button type="button" class="cientifico" onclick="apagar()" aria-label="Apagar último caractere">DEL</button>
+                <button type="button" class="cientifico" onclick="addValor('(')" aria-label="Abrir parênteses">(</button>
+                <button type="button" class="cientifico" onclick="addValor(')')" aria-label="Fechar parênteses">)</button>
+
+                <!-- Números e Operadores -->
+                <button type="button" onclick="addValor('7')">7</button>
+                <button type="button" onclick="addValor('8')">8</button>
+                <button type="button" onclick="addValor('9')">9</button>
+                <button type="button" class="operador" onclick="addValor('/')" aria-label="Dividido por">÷</button>
+
+                <button type="button" onclick="addValor('4')">4</button>
+                <button type="button" onclick="addValor('5')">5</button>
+                <button type="button" onclick="addValor('6')">6</button>
+                <button type="button" class="operador" onclick="addValor('*')" aria-label="Vezes">×</button>
+
+                <button type="button" onclick="addValor('1')">1</button>
+                <button type="button" onclick="addValor('2')">2</button>
+                <button type="button" onclick="addValor('3')">3</button>
+                <button type="button" class="operador" onclick="addValor('-')" aria-label="Menos">-</button>
+
+                <button type="button" onclick="addValor('0')">0</button>
+                <!-- Correção 1: Mantido o ponto visual e usado aria-label para a leitura -->
+                <button type="button" onclick="addValor('.')" aria-label="Vírgula decimal">.</button>
+                <button type="button" class="destaque-verde span-2" onclick="calcular()" aria-label="Igual, calcular resultado">=</button>
+                <button type="button" class="operador" onclick="addValor('+')" aria-label="Mais">+</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Desenvolvido por <a href="mailto:ubaldo3@gmail.com" style="color: #00E676; text-decoration: none;">ubaldo3@gmail.com</a></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
