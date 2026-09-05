@@ -1,0 +1,129 @@
+:root {
+    --verde-descomplica: #00E676;
+    --verde-hover: #00c765;
+    --fundo-pagina: #121212;
+    --fundo-calc: #1e1e1e;
+    --fundo-visor: #0a0a0a;
+    --cor-texto: #ffffff;
+    --botao-normal: #2d2d2d;
+    --botao-hover: #3d3d3d;
+    --botao-acao: #444444;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: var(--fundo-pagina);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: var(--cor-texto);
+    padding: 20px;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+    white-space: nowrap;
+}
+
+.calculadora {
+    background-color: var(--fundo-calc);
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 230, 118, 0.1);
+    width: 100%;
+    max-width: 380px;
+    border: 1px solid #333;
+}
+
+.visor-container {
+    margin-bottom: 20px;
+}
+
+#visor {
+    width: 100%;
+    height: 80px;
+    background-color: var(--fundo-visor);
+    border: 2px solid var(--botao-normal);
+    border-radius: 10px;
+    color: var(--verde-descomplica);
+    font-size: 2rem;
+    text-align: right;
+    padding: 15px;
+    outline: none;
+    transition: border 0.3s;
+}
+
+/* Foco visível essencial para acessibilidade via teclado */
+button:focus-visible {
+    outline: 3px solid var(--verde-descomplica);
+    outline-offset: 2px;
+}
+
+.botoes {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+button {
+    border: none;
+    background-color: var(--botao-normal);
+    color: var(--cor-texto);
+    font-size: 1.1rem;
+    padding: 18px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    font-weight: 500;
+}
+
+button:hover {
+    background-color: var(--botao-hover);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+.cientifico {
+    background-color: var(--botao-acao);
+    font-size: 0.95rem;
+    color: #ffffff; /* Contraste máximo para WCAG */
+}
+
+.operador {
+    color: var(--verde-descomplica);
+    font-size: 1.4rem;
+    background-color: var(--botao-acao);
+}
+
+.destaque-verde {
+    background-color: var(--verde-descomplica);
+    color: #000;
+    font-weight: bold;
+}
+
+.span-2 {
+    grid-column: span 2;
+}
+
+footer {
+    margin-top: 30px;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
